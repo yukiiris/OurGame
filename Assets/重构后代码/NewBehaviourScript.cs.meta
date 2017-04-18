@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: a2881758a294c384a841142b4bdd63ce
+timeCreated: 1490797053
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - heiqizi: {fileID: 1345173217295626, guid: c72d43cfc63568547b9de46bffaf4a21, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
