@@ -28,8 +28,7 @@ public class AnimaStrangeRoom : MonoBehaviour {
 		}
 		yield return new WaitForSecondsRealtime (2f);
 		GameSystem.IEnded ();
-		SceneManager.LoadScene ("C1S5",LoadSceneMode.Additive);
-		SceneManager.UnloadSceneAsync("C1S4");
+        SceneChanger.Change("C1S4", "C1S5", "突然我从床上惊醒，天已经亮了。", 3f);
 		yield return null;
 	
 	}

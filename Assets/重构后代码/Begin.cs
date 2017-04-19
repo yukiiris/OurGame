@@ -8,6 +8,7 @@ public class Begin : MonoBehaviour {
     public Flash flash;
     public GameObject sky;
     public GameObject black;
+    public GameObject logo;
     public GameObject background;
     public GameObject bug;
     public GameObject titleScene1;
@@ -22,6 +23,7 @@ public class Begin : MonoBehaviour {
     // Use this for initialization
     void Start () {
         MyCamera.isFixing = false;
+        Camera.main.transform.position = Vector3.back*10;
         StartCoroutine(begin());
     }
 	
@@ -32,56 +34,70 @@ public class Begin : MonoBehaviour {
 
     IEnumerator begin()
     {
+        Fade.Hide(logo);
+        yield return new WaitForSeconds(4f);
+        Fade.FadeIn(logo, 1f);
+        yield return new WaitForSeconds(4f);
+        Fade.Disappear(background, 3);
+        yield return new WaitForSeconds(3f);
+        Fade.Disappear(logo, 3);
+        yield return new WaitForSeconds(3f);
+
+
+
+        AudioSystem.ChangeBGM("BGM0",0,false);
         float t = 2.725f;
         yield return Words1();//第一句话
-        yield return new WaitForSeconds(9.29f);
+        yield return new WaitForSeconds(9.24f);
         yield return flash.flash1();//闪烁
         sky.SetActive(true);//天空
-        yield return new WaitForSeconds(2);
-        background.SetActive(false);
+        Fade.FadeIn(sky, 1f);
+        yield return new WaitForSeconds(2.05f);
         Fade.FadeOut(sky, 2);//天空消失
         yield return new WaitForSeconds(3);
         yield return Words2();
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(5.5f);
         SceneManager.LoadScene("PlayerScene", LoadSceneMode.Additive);
         titleScene1.SetActive(true);
         Fade.FadeIn(titleScene1);
         放动画.isMove = true;
         trans = titleScene1.transform;
         yield return new WaitForSeconds(t);
-        titleScene1.SetActive(false);
+        Fade.Disappear(titleScene1);
         titleScene2.SetActive(true);
+        Fade.FadeIn(titleScene2);
         trans = titleScene2.transform;
         yield return new WaitForSeconds(t);
+        Fade.Disappear(titleScene2);
         titleScene3.SetActive(true);
-        titleScene2.SetActive(false);
+        Fade.FadeIn(titleScene3);
         trans = titleScene3.transform;
         yield return new WaitForSeconds(t);
-        titleScene3.SetActive(false);
+        Fade.Disappear(titleScene3);
         titleScene4.SetActive(true);
+        Fade.FadeIn(titleScene4);
         trans = titleScene4.transform;
         yield return new WaitForSeconds(t);
-        titleScene4.SetActive(false);
+        Fade.Disappear(titleScene4);
         titleScene5.SetActive(true);
+        Fade.FadeIn(titleScene5);
         trans = titleScene5.transform;
         yield return new WaitForSeconds(t);
-        titleScene5.SetActive(false);
+        Fade.Disappear(titleScene5);
         titleScene6.SetActive(true);
+        Fade.FadeIn(titleScene6);
         trans = titleScene6.transform;
         yield return new WaitForSeconds(t);
-        titleScene6.SetActive(false);
+        Fade.Disappear(titleScene6);
         titleScene7.SetActive(true);
+        Fade.FadeIn(titleScene7);
         trans = titleScene7.transform;
         yield return new WaitForSeconds(t);
         放动画.isMove = false;
-        titleScene1.SetActive(false);
-        titleScene3.SetActive(false);
-        titleScene4.SetActive(false);
-        titleScene5.SetActive(false);
-        titleScene6.SetActive(false);
         Fade.FadeOut(titleScene7, 1);
-        SceneManager.UnloadSceneAsync("PlayerScene");
+        Fade.FadeOut(Player.current.gameObject,1);
         yield return new WaitForSeconds(2);
+        SceneManager.UnloadSceneAsync("PlayerScene");
         titleScene7.SetActive(false);
         yield return Words3();
         yield return new WaitForSeconds(3);
@@ -89,6 +105,7 @@ public class Begin : MonoBehaviour {
         yield return new WaitForSeconds(3);
         标题.isStart = true;
         SceneManager.LoadScene("标题界面", LoadSceneMode.Additive);
+        AudioSystem.ChangeBGM("BGM1",7);
         SceneManager.UnloadSceneAsync("片头");
     }
 
