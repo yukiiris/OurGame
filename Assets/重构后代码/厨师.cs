@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class 厨师 : NPC
 {
-	public GameObject poster;
-	public GameObject ink;
-	public GameObject gold;
-    public static bool isTalk = false;
-	public static bool isStand = false;
 	public static int counter = 1;
+    public GameObject chess;
 
     private void Start()
     {
@@ -24,39 +20,28 @@ public class 厨师 : NPC
         }
 
         public override void Execute(NPC npc)
-		{
-            if (isTalk)
-            {
-                npc.ChangeState(new TalkState());
-            }
-
+        {
 			if (npc.IfInteracted ()) {
-				//print ("act");
-				if (厨师.counter == 1) {
-					npc.ChangeState (new TalkState11 ());
-				} 
-				if (厨师.counter == 2) {
-					npc.ChangeState (new TalkState21 ());
-				}
-				if (厨师.counter == 3) {
-					npc.ChangeState (new TalkState31 ());
-				}
-				if (厨师.counter == 4) {
-					npc.ChangeState (new TalkState41 ());
-				}
-				if (ItemSystem.GetCurrentItem () == "棋盘") {
-					npc.ChangeState (new ItemState22 ());
-				}
-				if (ItemSystem.GetCurrentItem () == "金币") {
-					npc.ChangeState (new ItemState32 ());
-				}
-				if (厨师.counter == 5) {
-					npc.ChangeState (new TalkState51 ());
-				}
-				if (厨师.counter == 6) {
-					npc.ChangeState (new TalkState61 ());
-				}
+                //print ("act");
+                string item = ItemSystem.GetCurrentItem();
+                if ( item == "棋盘")
+                {
+                    npc.ChangeState(new ItemState22());
+                }
+                else if (item == "金币")
+                {
+                    npc.ChangeState(new ItemState32());
+                }
+                else switch (厨师.counter)
+                    {
+                        case 1: npc.ChangeState(new TalkState11()); break;
+                        case 2: npc.ChangeState(new TalkState21()); break;
+                        case 3: npc.ChangeState(new TalkState31()); break;
+                        case 4: npc.ChangeState(new TalkState41()); break;
+                        case 5: npc.ChangeState(new TalkState51()); break;
+                        case 6: npc.ChangeState(new TalkState61()); break;
 
+                    }
 			}
         }
 
@@ -65,34 +50,10 @@ public class 厨师 : NPC
 
         }
     }
-
-    class TalkState : NPCState
-    {
-        public override void Enter(NPC npc)
-        {
-           //print(厨师.isTalk);
-            npc.animator.SetBool("isTalk", true);
-        }
-
-        public override void Execute(NPC npc)
-        {
-            if (isStand)
-            {
-                npc.ChangeState(new StandState());
-            }
-        }
-
-        public override void Exit(NPC npc)
-        {
-
-        }
-    } 
-
 	class TalkState11 :NPCState
 	{
 		public override void Enter(NPC npc)
 		{
-			npc.animator.SetBool("isTalk", true);
 			LogSystem.Speak ("你好呀，来和我下棋吧。",npc);
 		}
 		public override void Execute (NPC npc)
@@ -152,14 +113,8 @@ public class 厨师 : NPC
 		public override void Execute (NPC npc)
 		{
 			if (LogSystem.IfSpeakEnded ()) {
-				npc.GetComponent<厨师> ().poster.SetActive (false);
-				npc.GetComponent<厨师> ().ink.SetActive (false);
 				npc.ChangeState (new StandState());
 			}
-		}
-		public override void Exit (NPC npc)
-		{
-
 		}
 	}
 
@@ -168,7 +123,6 @@ public class 厨师 : NPC
 	{
 		public override void Enter(NPC npc)
 		{
-			npc.animator.SetBool("isTalk", true);
 			LogSystem.Speak ("如果你找到了棋盘就带给我吧。", npc);
 
 		}
@@ -179,11 +133,6 @@ public class 厨师 : NPC
 				npc.ChangeState (new StandState ());
 			}
 		}
-
-		public override void Exit(NPC npc)
-		{
-
-		}
 	}
 
 	class ItemState22 : NPCState
@@ -191,26 +140,19 @@ public class 厨师 : NPC
 		public override void Enter(NPC npc)
 		{
 			ItemSystem.DeleteItem ("棋盘");
-			npc.GetComponent<厨师> ().gold.SetActive (false);
 			++厨师.counter;
 
 		}
 
 		public override void Execute(NPC npc)
 		{
-			npc.ChangeState (new StandState());
-		}
-
-		public override void Exit(NPC npc)
-		{
-
+			npc.ChangeState (new TalkState31());
 		}
 	}
 	class TalkState31 : NPCState
 	{
 		public override void Enter(NPC npc)
 		{
-			npc.animator.SetBool("isTalk", true);
 			LogSystem.Speak ("棋盘有了，但我还要金币。", npc);
 
 		}
@@ -220,11 +162,6 @@ public class 厨师 : NPC
 			if (LogSystem.IfSpeakEnded ()) {
 				npc.ChangeState (new StandState ());
 			}
-		}
-
-		public override void Exit(NPC npc)
-		{
-
 		}
 	}
 	class ItemState32 : NPCState
@@ -237,7 +174,7 @@ public class 厨师 : NPC
 
 		public override void Execute(NPC npc)
 		{
-			npc.ChangeState (new StandState());
+			npc.ChangeState (new TalkState41());
 
 		}
 
@@ -250,31 +187,47 @@ public class 厨师 : NPC
 	{
 		public override void Enter(NPC npc)
 		{
-			npc.animator.SetBool("isTalk", true);
 			LogSystem.Speak ("我们开始下棋吧。", npc);
-
-		}
+        }
 
 		public override void Execute(NPC npc)
 		{
 			if (LogSystem.IfSpeakEnded ()) {
-				npc.ChangeState (new StandState ());
+				npc.ChangeState (new PlayState ());
 			}
 		}
-
-		public override void Exit(NPC npc)
-		{
-
-		}
 	}
-	class TalkState51 : NPCState
+    class PlayState : NPCState
+    {
+        public override void Enter(NPC npc)
+        {
+            GameObject.Instantiate(npc.GetComponent<厨师>().chess);
+            npc.ChangeState(new beforeTalkState51());
+        }
+    }
+    class beforeTalkState51 : NPCState
+    {
+        public override void Execute(NPC npc)
+        {
+            if (GameSystem.IfWin())
+            {
+                ++厨师.counter;
+                npc.ChangeState(new TalkState51());
+            }
+            else if (GameSystem.IfClose())
+            {
+                npc.ChangeState(new StandState());
+            }
+        }
+    }
+    class TalkState51 : NPCState//胜利
 	{
 		public override void Enter(NPC npc)
 		{
-			npc.animator.SetBool("isTalk", true);
+            ItemSystem.AddItem("小钥匙");
 			LogSystem.Speak ("你赢啦，门已经打开了。", npc);
-
-		}
+            ++厨师.counter;
+        }
 
 		public override void Execute(NPC npc)
 		{
@@ -292,13 +245,12 @@ public class 厨师 : NPC
 	{
 		public override void Enter(NPC npc)
 		{
-			//player.istalk=true speak"打招呼之类的"
-		}
+            LogSystem.Speak("你还挺厉害的。", npc);
+        }
 
 		public override void Execute(NPC npc)
 		{
-			if (true/*LogSystem.IfSpeakEnded ()*/) {
-				//istalk=false
+			if (LogSystem.IfSpeakEnded ()) {
 				npc.ChangeState (new TalkState62 ());
 			}
 		}
@@ -312,15 +264,12 @@ public class 厨师 : NPC
 	{
 		public override void Enter(NPC npc)
 		{
-			npc.animator.SetBool ("isTalk",true);
 			LogSystem.Speak ("你好啊，今天天气不错。", npc);
-
 		}
 
 		public override void Execute(NPC npc)
 		{
 			if (LogSystem.IfSpeakEnded ()) {
-				npc.animator.SetBool ("isTalk",false);
 				npc.ChangeState (new StandState ());
 			}
 		}
