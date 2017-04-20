@@ -20,6 +20,7 @@ public class AnimaStrangeRoom : MonoBehaviour {
 //	}
 	IEnumerator MyCoroutine(){
 		GameSystem.IStarted ();
+        Camera.main.transform.position = (Vector3)((Vector2)transform.position) + Vector3.back * 10;
 		yield return new WaitForSecondsRealtime (2f);
 		for (int i = 0; i < transform.childCount-1; i++) {
 			transform.GetChild (i).gameObject.SetActive (false);
@@ -28,8 +29,11 @@ public class AnimaStrangeRoom : MonoBehaviour {
 		}
 		yield return new WaitForSecondsRealtime (2f);
 		GameSystem.IEnded ();
+        Transform t = Player.current.GetComponentInParent<Leg>().transform;
+        Vector3 v = t.position;
+        v.x = 7;
+        t.position = v;
         SceneChanger.Change("C1S4", "C1S5", "突然我从床上惊醒，天已经亮了。", 3f);
 		yield return null;
-	
 	}
 }

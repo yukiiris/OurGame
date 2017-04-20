@@ -30,6 +30,15 @@ public class Begin : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(trans!=null)trans.position += new Vector3(-speed, 0, 0);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StopAllCoroutines();
+            标题.isStart = true;
+            SceneManager.LoadScene("标题界面", LoadSceneMode.Additive);
+            AudioSystem.current.BGMSource.Stop();
+            AudioSystem.ChangeBGM("BGM1", 7);
+            SceneManager.UnloadSceneAsync("片头");
+        }
 	}
 
     IEnumerator begin()
