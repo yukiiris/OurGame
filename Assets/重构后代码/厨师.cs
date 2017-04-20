@@ -5,7 +5,7 @@ using UnityEngine;
 public class 厨师 : NPC
 {
 	public static int counter = 1;
-    public GameObject chess;
+    public GameObject chess_tic_tac_toe;
 
     private void Start()
     {
@@ -201,7 +201,7 @@ public class 厨师 : NPC
     {
         public override void Enter(NPC npc)
         {
-            GameObject.Instantiate(npc.GetComponent<厨师>().chess);
+            GameObject.Instantiate(npc.GetComponent<厨师>().chess_tic_tac_toe);
             npc.ChangeState(new beforeTalkState51());
         }
     }
