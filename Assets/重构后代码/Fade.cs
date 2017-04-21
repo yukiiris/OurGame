@@ -30,6 +30,8 @@ public class Fade : MonoBehaviour {
                 col.a = col.a + 1 / fadeTime;
                 if (col.a >= 1)
                 {
+                    col.a = 1;
+                    rend.material.color = col;
                     ifFade = false;
 					if (isDisappearingD)
 						Destroy (this);
@@ -41,6 +43,8 @@ public class Fade : MonoBehaviour {
                 col.a = col.a - 1 / fadeTime;
                 if (col.a <= 0)
                 {
+                    col.a = 0;
+                    rend.material.color = col;
                     ifFade = false;
                     if (isDisappearing) Destroy(gameObject);
 					Destroy (this);
@@ -54,7 +58,7 @@ public class Fade : MonoBehaviour {
     {
 		col.a = 0;
 		rend.material.color = col;
-        fadeTime = delayTime * 60;
+        fadeTime = delayTime/Time.deltaTime;
         ifFade = true;
         isFadeIn = true;
 		isDisappearingD = isD;
@@ -67,7 +71,7 @@ public class Fade : MonoBehaviour {
     }
     public void FadeOut(float delayTime = 0.2f)
     {
-        fadeTime = delayTime * 60;
+        fadeTime = delayTime / Time.deltaTime;
         ifFade = true;
         isFadeIn = false;
         col.a = 1;
@@ -75,10 +79,12 @@ public class Fade : MonoBehaviour {
     }
     public void Disappear(float delayTime = 0.2f)
     {
-        fadeTime = delayTime * 60;
+        fadeTime = delayTime / Time.deltaTime;
         ifFade = true;
         isFadeIn = false;
         isDisappearing = true;
+        col.a = 1;
+        rend.material.color = col;
     }
 	public static void Hide(GameObject g){
 		g.AddComponent<Fade> ();

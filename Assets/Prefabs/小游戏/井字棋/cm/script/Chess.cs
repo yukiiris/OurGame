@@ -10,7 +10,8 @@ public class Chess : MonoBehaviour {
     const int appearingDraw=3;
     public GameObject Cc;
     public GameObject Pc;
-    public GameObject WinImage;
+    public GameObject DefeatImage;
+    public GameObject DrawImage;
     public static int RoundWinner=0;
     int x = 0, y = 0;
     float sizex;
@@ -60,7 +61,7 @@ public class Chess : MonoBehaviour {
     void ChessDown(GameObject g)
     {
         Vector3 v= transform.position - new Vector3((1 - x) * sizex / 3, (1 - y) * sizey / 3, 1);
-        GameObject.Instantiate(g, v, Quaternion.identity);
+        GameObject.Instantiate(g, v, Quaternion.identity,transform);
         
     }
     void CheckPosition(Vector3 mouseposition)
@@ -73,7 +74,7 @@ public class Chess : MonoBehaviour {
     {
         //这一个小局玩家输了
         RoundWinner = COMPUTER;
-        print("你他妈输了");
+        SubtitleSystem.ShowSubtitle("这一回合你输了耶~继续努力~", 3);
     }
 
     void PlayerWin()
@@ -85,5 +86,6 @@ public class Chess : MonoBehaviour {
     void DrawAppear()
     {
         RoundWinner = appearingDraw;
+        SubtitleSystem.ShowSubtitle("这回合是平局呢！加油努力干掉电脑！", 3);
     }
 }

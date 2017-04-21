@@ -7,119 +7,35 @@ Direct3D:
     VRAM:     3035 MB
     Driver:   21.21.13.7653
 Begin MonoManager ReloadAssembly
-Platform assembly: D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
-Loading D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.024 seconds
-Platform assembly: D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: D:\Unity Projects\Tempt\Our Game2\Our Game\demo_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.025 seconds
+Platform assembly: C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Minstreams\Documents\GitHub\OurGame\demo_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3360x1117 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.236693 ms
-The referenced script on this Behaviour (Game Object 'downArrow') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'exit') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'upArrow') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'options') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'start') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'continue') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'gallery') is missing!
- 
-(Filename:  Line: 1754)
-
-0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-4.06
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-0.32
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-0.1235155
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-1.502954
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-4.29
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Null
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Null
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at 厨师+TalkState14.Execute (.NPC npc) [0x00000] in <filename unknown>:0 
+UnloadTime: 1.160342 ms
+ArgumentException: The Object you want to instantiate is null.
+  at UnityEngine.Object.CheckNullArgument (System.Object arg, System.String message) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Object.Instantiate[GameObject] (UnityEngine.GameObject original) [0x00000] in <filename unknown>:0 
+  at 厨师+PlayState.Enter (.NPC npc) [0x00000] in <filename unknown>:0 
+  at NPC.ChangeState (.NPCState newState) [0x00000] in <filename unknown>:0 
+  at 厨师+TalkState41.Execute (.NPC npc) [0x00000] in <filename unknown>:0 
   at NPC.Update () [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
-Nothing
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-剪刀
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-电池
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-拼图
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Nothing
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Nothing
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-电闸零件
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 6780 -> priority: 1 
+  Thread -> id: cc80 -> priority: 1 

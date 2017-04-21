@@ -22,7 +22,6 @@ public class StartButtom : MonoBehaviour {
         MyCamera.isFixing = true;
         GameObject.FindGameObjectWithTag("music").GetComponent<RectTransform>().position = new Vector3(-100, -100, 0);
         SceneManager.LoadScene("PlayerScene", LoadSceneMode.Additive);
-        SceneManager.LoadScene("C1S1", LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("标题界面");
+        SceneChanger.Change("标题界面", "C1S1", "我不知道发生了什么", 3.5f);
     }
 }

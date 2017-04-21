@@ -17,7 +17,7 @@ public class BackToStart : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("MainScene");
         SceneManager.LoadScene("标题界面", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("菜单界面");
     }
 }

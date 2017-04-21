@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     static public Animator animator;
     public Mouth mouth;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         current = this;
         leg = GetComponentInParent<Leg>();
         mouth = GetComponent<Mouth>();

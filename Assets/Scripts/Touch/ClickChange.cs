@@ -8,8 +8,7 @@ public class ClickChange : MonoBehaviour {
 	public string scene2;
 	void OnMouseDown () {
 		if(Player.current.GetXPosition()-transform.position.x<=dis&&Player.current.GetXPosition()-transform.position.x>=-dis){
-			SceneManager.LoadScene (scene1,LoadSceneMode.Additive);
-			SceneManager.UnloadSceneAsync(scene2);
+            SceneChanger.Change(scene2, scene1);
 		}
 	}
 }

@@ -7,7 +7,7 @@ public class TestPlayerMouseCon : MonoBehaviour {
     {
         if (Input.GetMouseButtonUp(1) && Camera.main.ScreenToWorldPoint(Input.mousePosition).y <= 0.5f)
         {
-            Player.leg.MoveTo(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).x);
+            Player.leg.MoveTo(Camera.main.ScreenToWorldPoint(Input.mousePosition).x);
         }
     }
 }

@@ -1,13 +1,16 @@
 fileFormatVersion: 2
 guid: 50ae9d9e28f40ea47acb0f355dc700ab
-timeCreated: 1491572164
+timeCreated: 1492701488
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - Cc: {fileID: 1149017871578462, guid: 1ee08edf7d35dd149877cc622007d836, type: 2}
   - Pc: {fileID: 1200651618724826, guid: b1562d0c8820ae645bfc4090885abe60, type: 2}
-  - WinImage: {fileID: 1745998436191828, guid: 704d83906ee1d2f4099ad9724004bbda, type: 2}
+  - DefeatImage: {fileID: 1904802418839078, guid: 84d1af810abdc0446aca840a04233128,
+      type: 2}
+  - DrawImage: {fileID: 1800385036358382, guid: d19dc26fe48fef5489c265363c0dc2cd,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

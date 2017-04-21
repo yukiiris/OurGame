@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MainManager : MonoBehaviour {
-    public static bool isThis_Mini_gameFinish = false;
+    public static bool isThis_Mini_gameFinish =false;
     public static bool isPlayerReallyWin = false;
 
-    static int Round;//记录回合数 五盘不输！ 厨师先行
+    static int Round=1;//记录回合数 五盘不输！ 厨师先行
     static bool isPlayerHasLost = false;
+
     const int COMPUTER = -1;
     const int PLAYER = 1;
     const int appearingDraw = 3;
@@ -22,12 +23,12 @@ public class MainManager : MonoBehaviour {
         {
             if (isPlayerReallyWin)
             {
-                Destroy(this);
+                Destroy(this.gameObject);
                 GameSystem.IWin();
             }
             else
             {
-                Destroy(this);
+                Destroy(this.gameObject);
                 GameSystem.IEnded();
             }
             
@@ -37,7 +38,7 @@ public class MainManager : MonoBehaviour {
 
     void RoundManager()
     {
-        if (Round == 5) isThis_Mini_gameFinish = true;
+        if (Round > 5) isThis_Mini_gameFinish = true;
         if (ChessManager.isGameover)
         {
             Round++;
@@ -51,12 +52,20 @@ public class MainManager : MonoBehaviour {
     {
         ChessManager.NewRoundBeginAndInit();
         //销毁他娘的子物体
-        Transform[] g = GetComponentsInChildren<Transform>();
-        foreach(Transform a in g)
+        Component[] g = GetComponentsInChildren<Transform>();
+        foreach(Component a in g)
         {
-            Destroy(a.GetComponent<GameObject>());
+            if (a != transform)
+                Destroy(a.gameObject);
         }
-        ChessManager.isPlayer = !ChessManager.isPlayer;
+        switch (Round)
+        {
+            case 1:ChessManager.isPlayer = false;break;
+            case 2: ChessManager.isPlayer = true; break;
+            case 3: ChessManager.isPlayer = false; break;
+            case 4: ChessManager.isPlayer = true; break;
+            case 5: ChessManager.isPlayer = false; break;
+        }
         
     }
 }

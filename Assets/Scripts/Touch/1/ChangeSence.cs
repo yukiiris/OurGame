@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class ChangeSence : MonoBehaviour {
 	public Touch touch;
-	public string scene1;
-	public string scene2;
+	public string sceneToLoad;
+	public string sceneToUnLoad;
+    public string sub;
+    public float delaytime;
 	// Use this for initialization
 	void Start () {
 		touch = GetComponent<Touch> ();
@@ -15,8 +17,7 @@ public class ChangeSence : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(touch.isTouched==true){
-			SceneManager.LoadScene (scene1,LoadSceneMode.Additive);
-			SceneManager.UnloadSceneAsync(scene2);
+            SceneChanger.Change(sceneToUnLoad, sceneToLoad, sub, delaytime);
 		}
 	}
 }

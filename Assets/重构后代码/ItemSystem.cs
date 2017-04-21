@@ -104,8 +104,9 @@ public class ItemSystem : MonoBehaviour {
         隐藏组合框框();
     }
 	IEnumerator SetAllItemsFalse(){
-		yield return new WaitForSeconds (0.21f);
+	//	yield return new WaitForSeconds (0.21f);
 		AllItems.SetActive(false);
+        yield return 0;
 	}
 
     public static void AddItem(string itemName)//添加道具
@@ -236,7 +237,6 @@ public class ItemSystem : MonoBehaviour {
         string s=currentItem;
         ItemSystem.current.StopCoroutine(DropItem());
         ItemSystem.current.StartCoroutine(DropItem());
-        print(s);
         return s;
     }
     static IEnumerator DropItem()

@@ -188,7 +188,7 @@ for (int j = 0; j< 3; j++){
         for (int i = 0; i<3;i++)
 			for (int j = 0; j< 3;j++)
 			{
-				if (weightRecordArray[i,j] > maxNumber)
+				if (weightRecordArray[i,j] >= maxNumber)
                 {
                     //还一度一味maxNumber没用，但要用它来找出maxPosition
 					maxNumber = weightRecordArray[i,j];//找出最大的权值  然后给maxPosition定位
@@ -205,34 +205,32 @@ for (int j = 0; j< 3; j++){
         {
             if (Board[i, 0] + Board[i, 1] + Board[i, 2] == BLACK * 3)
             {
-                temRecord = BLACK; return (temRecord);
+                temRecord = BLACK;isGameover = true; return (temRecord);
             }
             else if(Board[i, 0] + Board[i, 1] + Board[i, 2] == WHITE * 3)
             {
-                temRecord = WHITE; return (temRecord);
+                temRecord = WHITE; isGameover = true; return (temRecord);
             }
         }
         for (int j = 0; j < 3; j++)
         {
             if (Board[0, j] + Board[1, j] + Board[2, j] == BLACK * 3)
             {
-                temRecord = BLACK; return (temRecord);
+                temRecord = BLACK; isGameover = true; return (temRecord);
             }
             else if (Board[0, j] + Board[1, j] + Board[2, j] == WHITE * 3)
             {
-                temRecord = WHITE; return (temRecord);
+                temRecord = WHITE; isGameover = true; return (temRecord);
             }
         }
         //判断对角线
         if((Board[0,0]==Board[1,1]&& Board[1, 1] == Board[2,2]&& Board[1, 1]==WHITE)|| (Board[0, 2] == Board[1, 1] && Board[1, 1] == Board[2, 0] && Board[1, 1] == WHITE))
         {
-            temRecord = WHITE;
-            return (temRecord);
+            temRecord = WHITE; isGameover = true; return (temRecord);
         }
         else if ((Board[0, 0] == Board[1, 1] && Board[1, 1] == Board[2, 2] && Board[1, 1] == BLACK) || (Board[0, 2] == Board[1, 1] && Board[1, 1] == Board[2, 0] && Board[1, 1] == BLACK))
         {
-            temRecord = BLACK;
-            return (temRecord);
+            temRecord = BLACK;isGameover = true;return (temRecord);
         }
 
         int temCounting = 0;
@@ -242,8 +240,15 @@ for (int j = 0; j< 3; j++){
                 if (Board[i, j] != 0) temCounting++;
             }
         //appear a draw    if the program can go to here  the "temrecord" must be zero
-        if (temCounting == 9) return (appearingDraw);
-        else return (temRecord);
+        if (temCounting == 9)
+        {
+            isGameover = true;
+            return (appearingDraw);
+        }
+        else
+        {
+            return (temRecord);
+        }
     }
 
     public static void NewRoundBeginAndInit()
