@@ -3,7 +3,7 @@
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
-/[Dd]emo_Data/
+/[Dd]emo_Data/*
 /Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
