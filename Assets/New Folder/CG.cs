@@ -6,9 +6,11 @@ public class CG : MonoBehaviour {
 
     public int ID = 0;
     public GameObject bigPicture;
-    public GameObject cross;
+    public GameObject black;
     SpriteRenderer r;
     public CGManager manager;
+    public GameObject text1;
+    public GameObject text2;
 
 	// Use this for initialization
 	void Start () {
@@ -19,15 +21,16 @@ public class CG : MonoBehaviour {
     void Update () {
         if (!manager.isLock[ID])
         {
-            r.color = new Color(1, 1, 1, 1);
+            text1.SetActive(false);
+            text2.SetActive(true);
         }
-	}
+    }
 
     private void OnMouseUp()
     {
-        if (!manager.isLock[0])
+        if (!manager.isLock[ID])
         {
-            cross.SetActive(true);
+            black.SetActive(true);
             bigPicture.SetActive(true);
         }
     }

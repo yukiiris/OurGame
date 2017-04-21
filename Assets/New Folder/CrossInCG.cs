@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CGManager : MonoBehaviour {
+public class CrossInCG : MonoBehaviour {
 
-    public bool[] isLock = { true };
+    public GameObject obj;
+    public GameObject black;
 
 	// Use this for initialization
 	void Start () {
-        Unlock(0);
+		
 	}
 	
 	// Update is called once per frame
@@ -16,8 +17,9 @@ public class CGManager : MonoBehaviour {
 		
 	}
 
-    public void Unlock(int i)
+    private void OnMouseUp()
     {
-        isLock[0]= false;
+        black.SetActive(false);
+        obj.SetActive(false);
     }
 }
