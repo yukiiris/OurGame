@@ -1,2 +1,2 @@
-# OurGame
-Start Using github to develop our game.
+# 苍翠
+横板点击解谜RPG游戏
